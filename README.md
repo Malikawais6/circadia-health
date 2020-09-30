@@ -6,9 +6,7 @@ This project requires `node` and `npm`/`yarn` to run.
 
 Install dependencies
 
-```bash
-npm i
-```
+### `npm i`
 
 ## Available Scripts
 
