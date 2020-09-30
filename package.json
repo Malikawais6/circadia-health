@@ -2,9 +2,10 @@
   "name": "circadia-health",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://gxxph4h9l6.execute-api.us-east-1.amazonaws.com",
   "dependencies": {
+    "@babel/plugin-transform-react-jsx": "^7.10.4",
     "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -13,11 +14,29 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "babel": {
+    "env": {
+      "test": {
+        "plugins": [
+          "transform-es2015-modules-commonjs",
+          "@babel/plugin-transform-react-jsx",
+          "dynamic-import-node"
+        ]
+      }
+    }
+  },
+  "jest": {
+    "verbose": true,
+    "testRegex": "__tests__/.*\\.test\\.js$",
+    "moduleNameMapper": {
+      "\\.(css|less)$": "<rootDir>/src/components/innerFields.js"
+    }
   },
   "browserslist": {
     "production": [
@@ -30,5 +49,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@testing-library/react": "^9.5.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "jest": "^26.4.2"
   }
 }
